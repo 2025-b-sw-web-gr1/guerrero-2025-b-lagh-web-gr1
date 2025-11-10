@@ -1,0 +1,25 @@
+{
+  "name": "clase-7-motor-renderizado",
+  "version": "1.0.0",
+  "description": "Taller de Motores de Renderizado Web - Portafolio con Handlebars",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "handlebars",
+    "express",
+    "nodejs",
+    "portfolio",
+    "template-engine"
+  ],
+  "author": "Estudiante LAGH",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.2"
+  }
+}

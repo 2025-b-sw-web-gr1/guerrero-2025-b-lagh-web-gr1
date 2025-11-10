@@ -1,0 +1,40 @@
+<section class="page-header">
+    <h1>{{pageTitle}}</h1>
+    <p class="subtitle">Explora mi trabajo y proyectos recientes ({{projectCount}} proyectos)</p>
+</section>
+
+<section class="projects-section">
+    <div class="projects-grid">
+        {{#each projects}}
+        <article class="project-card {{#if this.featured}}featured{{/if}}">
+            <div class="project-image">
+                <div class="project-placeholder">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                {{#if this.featured}}
+                <span class="featured-badge">Destacado</span>
+                {{/if}}
+            </div>
+            <div class="project-info">
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <div class="project-tags">
+                    {{#each this.technologies}}
+                    <span class="tag">{{this}}</span>
+                    {{/each}}
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn btn-small">
+                        <i class="fas fa-eye"></i> Ver Demo
+                    </a>
+                    <a href="#" class="btn btn-small btn-secondary">
+                        <i class="fab fa-github"></i> Código
+                    </a>
+                </div>
+            </div>
+        </article>
+        {{else}}
+        <p class="no-projects">No hay proyectos disponibles en este momento.</p>
+        {{/each}}
+    </div>
+</section>

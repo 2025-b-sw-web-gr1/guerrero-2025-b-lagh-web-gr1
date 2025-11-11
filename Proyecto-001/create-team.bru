@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: https://api.ejemplo.com/teams
+  url: https://jsonplaceholder.typicode.com/users
   body: json
   auth: none
 }
@@ -21,4 +21,8 @@ body:json {
     "foundedYear": 1899,
     "stadium": "Camp Nou"
   }
+}
+
+settings {
+  insecure: true
 }

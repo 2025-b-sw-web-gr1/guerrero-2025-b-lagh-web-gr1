@@ -1,0 +1,26 @@
+meta {
+  name: Actualizar jugador completo
+  type: http
+  seq: 10
+}
+
+put {
+  url: https://api.ejemplo.com/players/1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Lionel Messi",
+    "position": "Delantero",
+    "number": 10,
+    "nationality": "Argentina",
+    "teamId": 1,
+    "age": 36
+  }
+}

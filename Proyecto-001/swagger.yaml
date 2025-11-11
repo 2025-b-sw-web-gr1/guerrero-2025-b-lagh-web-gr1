@@ -1,0 +1,376 @@
+openapi: 3.0.0
+info:
+  title: API Equipos y Jugadores
+  description: API RESTful para gestionar equipos deportivos y sus jugadores (relación 1-a-muchos)
+  version: 1.0.0
+  contact:
+    name: Guerrero 2025B
+    
+servers:
+  - url: https://api.ejemplo.com
+    description: Servidor principal
+
+tags:
+  - name: Equipos
+    description: Operaciones relacionadas con equipos deportivos
+  - name: Jugadores
+    description: Operaciones relacionadas con jugadores
+
+paths:
+  /teams:
+    get:
+      tags:
+        - Equipos
+      summary: Obtener todos los equipos
+      description: Retorna una lista de todos los equipos deportivos
+      responses:
+        '200':
+          description: Lista de equipos obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    
+    post:
+      tags:
+        - Equipos
+      summary: Crear un nuevo equipo
+      description: Crea un nuevo equipo deportivo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamInput'
+      responses:
+        '201':
+          description: Equipo creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Datos inválidos
+
+  /teams/{id}:
+    get:
+      tags:
+        - Equipos
+      summary: Obtener equipo por ID
+      description: Retorna un equipo específico por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del equipo
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Equipo encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          description: Equipo no encontrado
+    
+    put:
+      tags:
+        - Equipos
+      summary: Actualizar equipo completo
+      description: Actualiza todos los datos de un equipo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del equipo a actualizar
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamInput'
+      responses:
+        '200':
+          description: Equipo actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          description: Equipo no encontrado
+    
+    delete:
+      tags:
+        - Equipos
+      summary: Eliminar equipo
+      description: Elimina un equipo del sistema
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del equipo a eliminar
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Equipo eliminado exitosamente
+        '404':
+          description: Equipo no encontrado
+
+  /teams/{id}/players:
+    get:
+      tags:
+        - Jugadores
+      summary: Obtener jugadores de un equipo
+      description: Retorna todos los jugadores pertenecientes a un equipo específico (relación 1-a-muchos)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del equipo
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Lista de jugadores del equipo
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '404':
+          description: Equipo no encontrado
+
+  /players:
+    get:
+      tags:
+        - Jugadores
+      summary: Obtener todos los jugadores
+      description: Retorna una lista de todos los jugadores
+      responses:
+        '200':
+          description: Lista de jugadores obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+    
+    post:
+      tags:
+        - Jugadores
+      summary: Crear un nuevo jugador
+      description: Crea un nuevo jugador y lo asigna a un equipo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerInput'
+      responses:
+        '201':
+          description: Jugador creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '400':
+          description: Datos inválidos
+
+  /players/{id}:
+    get:
+      tags:
+        - Jugadores
+      summary: Obtener jugador por ID
+      description: Retorna un jugador específico por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del jugador
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Jugador encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '404':
+          description: Jugador no encontrado
+    
+    put:
+      tags:
+        - Jugadores
+      summary: Actualizar jugador completo
+      description: Actualiza todos los datos de un jugador
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del jugador a actualizar
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerInput'
+      responses:
+        '200':
+          description: Jugador actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '404':
+          description: Jugador no encontrado
+    
+    delete:
+      tags:
+        - Jugadores
+      summary: Eliminar jugador
+      description: Elimina un jugador del sistema
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del jugador a eliminar
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Jugador eliminado exitosamente
+        '404':
+          description: Jugador no encontrado
+
+components:
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID único del equipo
+          example: 1
+        name:
+          type: string
+          description: Nombre del equipo
+          example: "FC Barcelona"
+        country:
+          type: string
+          description: País del equipo
+          example: "España"
+        foundedYear:
+          type: integer
+          description: Año de fundación
+          example: 1899
+        stadium:
+          type: string
+          description: Nombre del estadio
+          example: "Camp Nou"
+        coach:
+          type: string
+          description: Nombre del entrenador
+          example: "Xavi Hernández"
+    
+    TeamInput:
+      type: object
+      required:
+        - name
+        - country
+      properties:
+        name:
+          type: string
+          description: Nombre del equipo
+          example: "FC Barcelona"
+        country:
+          type: string
+          description: País del equipo
+          example: "España"
+        foundedYear:
+          type: integer
+          description: Año de fundación
+          example: 1899
+        stadium:
+          type: string
+          description: Nombre del estadio
+          example: "Camp Nou"
+        coach:
+          type: string
+          description: Nombre del entrenador
+          example: "Xavi Hernández"
+    
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID único del jugador
+          example: 1
+        name:
+          type: string
+          description: Nombre del jugador
+          example: "Lionel Messi"
+        position:
+          type: string
+          description: Posición del jugador
+          example: "Delantero"
+        number:
+          type: integer
+          description: Número de camiseta
+          example: 10
+        nationality:
+          type: string
+          description: Nacionalidad del jugador
+          example: "Argentina"
+        age:
+          type: integer
+          description: Edad del jugador
+          example: 36
+        teamId:
+          type: integer
+          description: ID del equipo al que pertenece (FK)
+          example: 1
+    
+    PlayerInput:
+      type: object
+      required:
+        - name
+        - position
+        - teamId
+      properties:
+        name:
+          type: string
+          description: Nombre del jugador
+          example: "Lionel Messi"
+        position:
+          type: string
+          description: Posición del jugador
+          example: "Delantero"
+        number:
+          type: integer
+          description: Número de camiseta
+          example: 10
+        nationality:
+          type: string
+          description: Nacionalidad del jugador
+          example: "Argentina"
+        age:
+          type: integer
+          description: Edad del jugador
+          example: 36
+        teamId:
+          type: integer
+          description: ID del equipo al que pertenece
+          example: 1

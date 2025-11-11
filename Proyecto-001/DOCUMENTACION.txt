@@ -1,0 +1,10 @@
+DOCUMENTACIÓN COMPLETA EN GOOGLE DOCS:
+https://docs.google.com/document/d/1yE_LCAzXG-8xKUdGw9bS7rIDgUJU0jqDAuQ4FOpbFTY/edit?usp=sharing
+
+CONTENIDO:
+- Diseño de API RESTful con relación 1-a-muchos
+- Explicación de Equipos y Jugadores
+- Colección Bruno (11 peticiones HTTP)
+- Documentación Swagger/OpenAPI
+- Endpoints y casos de uso
+- Diagramas de modelo de datos

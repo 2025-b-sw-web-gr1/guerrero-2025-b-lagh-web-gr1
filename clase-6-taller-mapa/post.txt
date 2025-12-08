@@ -1,0 +1,17 @@
+POST para canal "002 - Definicion T. Clase" (Clase 006)
+
+Asunto: Clase 006 - W3C (entrega práctica)
+
+Hola compañeros/as,
+Adjunto el taller de la Clase 006 sobre W3C — incluye: mapa mental con conceptos clave, la selección y justificación de 5 estándares y un ejemplo práctico accesible (HTML5 + CSS + WCAG + WAI-ARIA + SVG).
+
+Puedes ver la demo localmente en `clase-6-taller-mapa/index.html`.
+
+Principales aprendizajes:
+- Importancia de la interoperabilidad y accesibilidad en la Web.
+- Cómo aplicar WAI-ARIA y WCAG en un sencillo formulario accesible.
+
+Link: https://app.presentations.ai/view/Mj0n7oPZel
+
+Saludos,
+[Tu nombre / Grupo]

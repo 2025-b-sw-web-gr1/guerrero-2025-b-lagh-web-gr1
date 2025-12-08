@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clase 006 - W3C (Ejemplo accesible)</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <!-- Inline SVG logo with accessible title -->
+      <div class="logo" role="img" aria-label="Logo del taller clase 006 - W3C">
+        <svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="false">
+          <title>Logo taller W3C</title>
+          <circle cx="12" cy="12" r="10" fill="#0466c8"></circle>
+          <text x="12" y="16" font-size="10" text-anchor="middle" fill="#fff">W3C</text>
+        </svg>
+      </div>
+      <h1 class="site-title">Clase 006 - W3C</h1>
+      <nav class="main-nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="#introduccion">Introducción</a></li>
+          <li><a href="#ejemplo">Ejemplo WCAG</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <article>
+      <header>
+        <h2 id="introduccion">W3C y Estándares Web</h2>
+        <p>Este ejemplo demuestra buenas prácticas de accesibilidad (WCAG/WAI-ARIA) y el uso de HTML5 semántico, CSS Grid/Flexbox y SVG.</p>
+      </header>
+
+      <section id="ejemplo" aria-labelledby="ejemplo">
+        <h3>Ejemplo: Formulario accesible</h3>
+        <p>Formulario con etiquetas claras, asociadas a los controles y con roles y estados ARIA cuando sean necesarios.</p>
+
+        <form id="contact-form" action="#" novalidate>
+          <div class="form-grid">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" required aria-required="true">
+
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required aria-required="true">
+
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <div class="form-actions">
+              <button type="submit">Enviar</button>
+              <button type="reset">Limpiar</button>
+            </div>
+          </div>
+
+          <div id="form-message" class="sr-only" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="accessible-demo">
+          <p>Prueba la accesibilidad con el teclado usando <kbd>Tab</kbd> para navegar entre los controles.</p>
+        </div>
+
+      </section>
+
+      <section id="recursos">
+        <h3>Recursos W3C</h3>
+        <ul>
+          <li><a href="https://www.w3.org/" target="_blank" rel="noopener">W3C</a></li>
+          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener">WCAG</a></li>
+          <li><a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank" rel="noopener">WAI-ARIA</a></li>
+          <li><a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener">MDN Web Docs</a></li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Clase 006 - W3C · Ejemplo práctico · 2025-B SW Web GR1</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

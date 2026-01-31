@@ -1,0 +1,47 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="animate-fade-in">{{pageTitle}}</h1>
+        <p class="subtitle animate-slide-up">{{subtitle}}</p>
+        <p class="hero-description animate-slide-up">
+            Creando experiencias digitales excepcionales con código limpio y diseño moderno
+        </p>
+        {{#if showContactButton}}
+        <div class="hero-buttons animate-slide-up">
+            <a href="/projects" class="btn btn-primary">Ver Proyectos</a>
+            <a href="/contact" class="btn btn-secondary">Contáctame</a>
+        </div>
+        {{/if}}
+    </div>
+</section>
+
+<section class="featured-projects">
+    <h2 class="section-title">Proyectos Destacados</h2>
+    <div class="projects-grid">
+        {{#each projects}}
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <div class="project-tags">
+                    {{#each this.technologies}}
+                    <span class="tag">{{this}}</span>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p>¡Trabajemos juntos para hacerlo realidad!</p>
+        <a href="/contact" class="btn btn-primary">Contactar</a>
+    </div>
+</section>

@@ -1,0 +1,40 @@
+==================================================
+  EXAMEN 01 - DOCUMENTACIÓN SWAGGER API
+  Clase 9 - JSONPlaceholder
+==================================================
+
+📚 DOCUMENTACIÓN COMPLETA EN GOOGLE DOCS:
+
+https://docs.google.com/document/d/1nr8tXf6Naf127ZaO9jgKnOucNCXa-1rvSTKBo7el-ao/edit?usp=sharing
+
+==================================================
+
+📝 DESCRIPCIÓN DEL PROYECTO:
+
+Este proyecto contiene la documentación completa de la API REST
+de JSONPlaceholder utilizando Swagger/OpenAPI 3.0.
+
+Incluye:
+✅ Definición de todos los endpoints (posts, comments, albums, photos, todos, users)
+✅ Especificación de métodos HTTP (GET, POST, PUT, PATCH, DELETE)
+✅ Esquemas de datos (schemas) para cada recurso
+✅ Parámetros de rutas y query strings
+✅ Códigos de respuesta HTTP
+✅ Ejemplos de request y response
+✅ Documentación interactiva en Swagger Editor
+
+📂 Archivos incluidos:
+- swagger.yaml (especificación OpenAPI completa)
+- README.md (instrucciones de uso)
+- DOCUMENTACION.txt (este archivo)
+
+� Para probar:
+1. Visita: https://editor.swagger.io/
+2. Copia el contenido de swagger.yaml
+3. Pégalo en el editor
+4. Explora y prueba los endpoints
+
+==================================================
+Fecha: Noviembre 2025
+Clase: Construcción y Evolución Frontend
+==================================================

@@ -1,0 +1,53 @@
+<section class="page-header">
+    <h1>{{pageTitle}}</h1>
+</section>
+
+<section class="about-content">
+    <div class="about-grid">
+        <div class="about-text">
+            <h2>Mi Historia</h2>
+            <p>{{bio}}</p>
+            <p>Me apasiona aprender nuevas tecnologías y compartir conocimiento con la comunidad de desarrolladores. Siempre busco mejorar mis habilidades y enfrentar nuevos desafíos.</p>
+        </div>
+        <div class="about-image">
+            <div class="profile-placeholder">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills-section">
+    <h2 class="section-title">Habilidades Técnicas</h2>
+    <div class="skills-grid">
+        {{#each skills}}
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">{{this.name}}</span>
+                <span class="skill-percentage">{{this.level}}%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: {{this.level}}%"></div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<section class="education-section">
+    <h2 class="section-title">Educación</h2>
+    <div class="timeline">
+        {{#each education}}
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>{{this.degree}}</h3>
+                <p class="institution">{{this.institution}}</p>
+                <span class="year">{{this.year}}</span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>

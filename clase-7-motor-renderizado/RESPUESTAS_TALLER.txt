@@ -1,0 +1,6 @@
+TALLER CLASE 7 - MOTOR DE RENDERIZADO HANDLEBARS
+==================================================
+
+Documentación completa del proyecto disponible en:
+
+https://docs.google.com/document/d/1kGMAHdiFmnemzhUu-FodaMS_PbpO3xC5kA9tBR875HA/edit?usp=sharing

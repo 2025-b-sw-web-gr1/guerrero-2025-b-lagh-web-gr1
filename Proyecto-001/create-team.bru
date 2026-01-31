@@ -1,0 +1,28 @@
+meta {
+  name: Crear nuevo equipo
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/users
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Barcelona FC",
+    "country": "España",
+    "foundedYear": 1899,
+    "stadium": "Camp Nou"
+  }
+}
+
+settings {
+  insecure: true
+}

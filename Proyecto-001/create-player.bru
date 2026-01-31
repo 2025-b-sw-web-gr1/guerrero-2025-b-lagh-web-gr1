@@ -1,0 +1,29 @@
+meta {
+  name: Crear nuevo jugador
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/posts
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Lionel Messi",
+    "position": "Delantero",
+    "number": 10,
+    "nationality": "Argentina",
+    "teamId": 1
+  }
+}
+
+settings {
+  insecure: true
+}

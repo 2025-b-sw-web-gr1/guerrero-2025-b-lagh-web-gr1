@@ -1,5 +1,5 @@
 {
-  "name": "examen-web-002",
+  "name": "clase-012",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -23,11 +23,9 @@
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
-    "@nestjs/typeorm": "^11.0.0",
+    "nestjs-i18n": "^10.6.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.28"
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

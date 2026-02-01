@@ -1,46 +1,83 @@
-# Proyecto 001 - Documentación con Swagger
+# Examen Web - API RESTful NestJS
 
-Este proyecto implementa una API RESTful para gestionar Equipos y Jugadores, documentada con Swagger (OpenAPI).
+Este proyecto implementa una API RESTful para gestionar Equipos y Jugadores usando NestJS y SQLite.
 
 ## Instalación
 
-1. Clonar el repositorio.
-2. Navegar a la carpeta del proyecto.
-3. Instalar dependencias:
+Instalar las dependencias del proyecto:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ## Ejecución
 
-Para iniciar el servidor en modo desarrollo:
+Correr el servidor en modo desarrollo:
 
-\`\`\`bash
+```bash
 npm run start:dev
-\`\`\`
+```
 
-El servidor se iniciará en `http://localhost:3000`.
+El servidor iniciará en `http://localhost:3000`.
 
-## Documentación API (Swagger)
+## Endpoints
 
-La documentación interactiva generado por Swagger está disponible en:
+### Teams (Equipos)
 
-**[http://localhost:3000/api](http://localhost:3000/api)**
+- **Obtener todos los equipos:**
+  ```bash
+  curl -X GET http://localhost:3000/teams
+  ```
 
-### Endpoints Principales
+- **Obtener un equipo por ID:**
+  ```bash
+  curl -X GET http://localhost:3000/teams/1
+  ```
 
-#### Teams
-- `GET /teams`: Listar equipos.
-- `GET /teams/:id`: Obtener detalle de un equipo.
-- `POST /teams`: Crear un equipo (requiere `name`, `country`).
-- `PUT /teams/:id`: Actualizar equipo.
-- `DELETE /teams/:id`: Eliminar equipo.
+- **Crear un equipo:**
+  ```bash
+  curl -X POST http://localhost:3000/teams -H "Content-Type: application/json" -d "{\"name\":\"FC Barcelona\", \"country\":\"Spain\"}"
+  ```
 
-#### Players
-- `GET /players`: Listar jugadores.
-- `GET /players/:id`: Obtener detalle de un jugador.
-- `POST /players`: Crear un jugador.
-- `PUT /players/:id`: Actualizar jugador.
-- `DELETE /players/:id`: Eliminar jugador.
-- `GET /teams/:id/players`: Listar jugadores de un equipo.
+- **Actualizar un equipo:**
+  ```bash
+  curl -X PUT http://localhost:3000/teams/1 -H "Content-Type: application/json" -d "{\"name\":\"Barca Updated\"}"
+  ```
+
+- **Eliminar un equipo:**
+  ```bash
+  curl -X DELETE http://localhost:3000/teams/1
+  ```
+
+- **Obtener jugadores de un equipo:**
+  ```bash
+  curl -X GET http://localhost:3000/teams/1/players
+  ```
+
+### Players (Jugadores)
+
+- **Obtener todos los jugadores:**
+  ```bash
+  curl -X GET http://localhost:3000/players
+  ```
+
+- **Obtener un jugador por ID:**
+  ```bash
+  curl -X GET http://localhost:3000/players/1
+  ```
+
+- **Crear un jugador:**
+  (Asegúrate de tener un equipo con ID 1 primero)
+  ```bash
+  curl -X POST http://localhost:3000/players -H "Content-Type: application/json" -d "{\"name\":\"Lionel Messi\", \"position\":\"Forward\", \"team\": {\"id\": 1}}"
+  ```
+
+- **Actualizar un jugador:**
+  ```bash
+  curl -X PUT http://localhost:3000/players/1 -H "Content-Type: application/json" -d "{\"position\":\"Midfielder\"}"
+  ```
+
+- **Eliminar un jugador:**
+  ```bash
+  curl -X DELETE http://localhost:3000/players/1
+  ```
